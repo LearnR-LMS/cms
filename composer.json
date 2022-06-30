@@ -13,6 +13,7 @@
     "require": {
         "php": "^7.1.3",
         "chumper/zipper": "1.0.x",
+        "doctrine/dbal": "^3.3",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "*",
         "ignited/laravel-omnipay": "3.0.2",

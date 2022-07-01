@@ -16,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'user'], function () {
     Route::post('store', [UserApiController::class, 'store']);
-    Route::post('edit/{id}', [UserApiController::class, 'edit']);
-    Route::delete('store', [UserApiController::class, 'store']);
+    Route::post('update/{id}', [UserApiController::class, 'update']);
+    Route::delete('{id}', [UserApiController::class, 'delete']);
 });

@@ -10,4 +10,10 @@ class UserService extends BaseService
     {
         return $request->all();
     }
+    public function update($id, $request) {
+        return $id;
+    }
+    public function delete($id) {
+        return $id;
+    }
 }

@@ -28,4 +28,26 @@ class UserApiController extends BaseApiController
             return $this->setMessage($exception->getMessage())->sendErrorData();
         }
     }
+    public function update($id, Request $request)
+    {
+        try {
+            return $this->sendSuccessData(
+                $this->service->update($id, $request)
+            );
+        } catch (Exception $exception) {
+            $this->getLogger()->error($exception);
+            return $this->setMessage($exception->getMessage())->sendErrorData();
+        }
+    }
+    public function delete($id)
+    {
+        try {
+            return $this->sendSuccessData(
+                $this->service->delete($id)
+            );
+        } catch (Exception $exception) {
+            $this->getLogger()->error($exception);
+            return $this->setMessage($exception->getMessage())->sendErrorData();
+        }
+    }
 }

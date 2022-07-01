@@ -13,7 +13,8 @@ class UserService extends BaseService
             "last_name" => $request->last_name,
             "email" => $request->email,
         ];
-        User::create($input);
+        $user = User::create($input);
+        $user->roles()->attach([1]);
         return $input;
     }
     public function update($id, $request) {
@@ -33,6 +34,7 @@ class UserService extends BaseService
         $user = User::find($id);
         if ($user) {
             $user->delete();
+            $user->roles()->detach();
         }else{
             abort(404,"Không tìm thấy user");
         }

@@ -8,12 +8,35 @@ class UserService extends BaseService
 {
     public function store($request)
     {
-        return $request->all();
+        $input = [
+            "first_name" => $request->first_name,
+            "last_name" => $request->last_name,
+            "email" => $request->email,
+        ];
+        User::create($input);
+        return $input;
     }
     public function update($id, $request) {
-        return $id;
+        $id = (int) $id;
+        $user = User::find($id);
+        if ($user) {
+            $user->first_name = $request->first_name;
+            $user->last_name = $request->last_name;
+            $user->email = $request->email;
+            $user->save();
+        } else {
+            abort(404, "Không tìm thấy user");
+        }
+        return $request->all();
     }
     public function delete($id) {
+        $user = User::find($id);
+        if ($user) {
+            $user->delete();
+        }else{
+            abort(404,"Không tìm thấy user");
+        }
+
         return $id;
     }
 }

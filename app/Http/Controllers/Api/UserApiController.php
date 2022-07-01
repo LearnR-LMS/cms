@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Api\BaseApiController;
 use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Services\UserService;
 use Exception;
 use Illuminate\Http\Request;
@@ -17,22 +18,24 @@ class UserApiController extends BaseApiController
         $this->service = $service;
     }
 
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
         try {
             return $this->sendSuccessData(
-                $this->service->store($request)
+                $this->service->store($request),
+                "Thêm mới User thành công"
             );
         } catch (Exception $exception) {
             $this->getLogger()->error($exception);
             return $this->setMessage($exception->getMessage())->sendErrorData();
         }
     }
-    public function update($id, Request $request)
+    public function update($id, UserUpdateRequest $request)
     {
         try {
             return $this->sendSuccessData(
-                $this->service->update($id, $request)
+                $this->service->update($id, $request),
+                "Cập nhật User thành công"
             );
         } catch (Exception $exception) {
             $this->getLogger()->error($exception);
@@ -43,7 +46,8 @@ class UserApiController extends BaseApiController
     {
         try {
             return $this->sendSuccessData(
-                $this->service->delete($id)
+                $this->service->delete($id),
+                "Đã xóa User thành công"
             );
         } catch (Exception $exception) {
             $this->getLogger()->error($exception);

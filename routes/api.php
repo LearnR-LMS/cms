@@ -13,9 +13,15 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('login', [UserApiController::class, 'login']);
+    Route::get('refresh', [UserApiController::class, 'refresh']);
+});
 
-Route::group(['prefix' => 'user'], function () {
-    Route::post('store', [UserApiController::class, 'store']);
-    Route::post('update/{id}', [UserApiController::class, 'update']);
-    Route::delete('{id}', [UserApiController::class, 'delete']);
+Route::group(['middleware' => 'auth.jwt'], function () {
+    Route::group(['prefix' => 'user'], function () {
+        Route::post('store', [UserApiController::class, 'store']);
+        Route::post('update/{id}', [UserApiController::class, 'update']);
+        Route::delete('{id}', [UserApiController::class, 'delete']);
+    });
 });

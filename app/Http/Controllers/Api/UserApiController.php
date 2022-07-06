@@ -18,6 +18,29 @@ class UserApiController extends BaseApiController
         $this->service = $service;
     }
 
+    public function login(Request $request)
+    {
+        try {
+            return $this->sendSuccessData(
+                $this->service->login($request),
+                "Đăng nhập thành công"
+            );
+        } catch (Exception $exception) {
+            $this->getLogger()->error($exception);
+            return $this->setMessage($exception->getMessage())->sendErrorData();
+        }
+    }
+    public function refresh()
+    {
+        try {
+            return $this->sendSuccessData(
+                $this->service->refresh()
+            );
+        } catch (Exception $exception) {
+            $this->getLogger()->error($exception);
+            return $this->setMessage($exception->getMessage())->sendErrorData();
+        }
+    }
     public function store(UserStoreRequest $request)
     {
         try {

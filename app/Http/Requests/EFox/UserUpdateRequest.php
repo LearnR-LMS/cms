@@ -26,10 +26,11 @@ class UserUpdateRequest extends BaseFormRequest
         return [
             'first_name' => 'string|max:255',
             'last_name' => 'string|max:255',
-            'email' => 'string|email|max:255|unique:users',
+            'email' => 'string|email|max:255|unique:users,email,' . $this->u_id,
             'adress' => 'string|max:255',
             'phone' => 'numeric|digits:10',
             'address_vallet' => 'string|max:255',
+            'u_id' => 'required|numeric',
         ];
     }
 
@@ -50,6 +51,8 @@ class UserUpdateRequest extends BaseFormRequest
             'phone.digits' => 'SDT tối đa 10 số',
             'address_vallet.string' => 'Địa chỉ không hợp lệ',
             'address_vallet.string' => 'Địa chỉ tối đa 255 ký tự',
+            'u_id.required' => 'id user không để trống',
+            'u_id.numeric' => 'id user đúng định dạng',
         ];
     }
 }

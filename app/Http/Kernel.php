@@ -63,6 +63,8 @@ class Kernel extends HttpKernel
         'role' => \App\Http\Middleware\CheckRole::class,
         'subscribed' => \App\Http\Middleware\IsSubscribed::class,
         'auth.jwt' => \Tymon\JWTAuth\Http\Middleware\Authenticate::class, // JWT middleware
+        'auth.jwt' => \Tymon\JWTAuth\Http\Middleware\Authenticate::class, // JWT middleware
+        'efox' => \App\Http\Middleware\eFox::class, // eFox middleware
     
     ];
 

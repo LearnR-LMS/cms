@@ -25,3 +25,6 @@ Route::group(['middleware' => 'auth.jwt'], function () {
         Route::delete('{id}', [UserApiController::class, 'delete']);
     });
 });
+
+Route::group(['middleware' => 'efox'], function () {
+});

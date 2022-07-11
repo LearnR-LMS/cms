@@ -26,7 +26,7 @@ class UserUpdateRequest extends BaseFormRequest
         return [
             'first_name' => 'string|max:255',
             'last_name' => 'string|max:255',
-            'email' => 'string|email|max:255|unique:users,email,' . $this->id,
+            'email' => 'string|email|max:255|unique:users,email,' . $this->u_id,
             'adress' => 'string|max:255',
             'phone' => 'numeric|digits:10',
             'address_vallet' => 'string|max:255',

@@ -19,17 +19,20 @@ Route::group(['prefix' => 'auth'], function () {
     Route::get('refresh', [UserApiController::class, 'refresh']);
 });
 
-// Route::group(['middleware' => 'auth.jwt'], function () {
+Route::group(['middleware' => 'auth.jwt'], function () {
     Route::group(['prefix' => 'user'], function () {
         Route::post('store', [UserApiController::class, 'store']);
         Route::post('update/{id}', [UserApiController::class, 'update']);
         Route::delete('{id}', [UserApiController::class, 'delete']);
     });
-    Route::group(['prefix' => 'efox'], function () {
+});
+
+Route::group(['middleware' => 'efox'], function () {
+    Route::group(['prefix' => 'transfer'], function () {
         Route::group(['prefix' => 'user'], function () {
             Route::post('store', [EFoxApiController::class, 'store']);
             Route::post('update/{id}', [EFoxApiController::class, 'update']);
             Route::delete('{id}', [EFoxApiController::class, 'delete']);
         });
     });
-// });
+});

@@ -32,6 +32,10 @@ class EFoxUserService extends BaseService
             $user->first_name = $request->first_name;
             $user->last_name = $request->last_name;
             $user->email = $request->email;
+            $user->address = $request->address;
+            $user->phone = $request->phone;
+            $user->address_vallet = $request->address_vallet;
+            $user->u_id = $request->u_id;
             $user->save();
         } else {
             abort(404, "Không tìm thấy user");

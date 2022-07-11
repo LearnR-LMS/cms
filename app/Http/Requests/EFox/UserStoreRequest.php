@@ -30,6 +30,7 @@ class UserStoreRequest extends BaseFormRequest
             'adress' => 'string|max:255',
             'phone' => 'numeric|digits:10',
             'address_vallet' => 'string|max:255',
+            'u_id' => 'required|numeric',
         ];
     }
 
@@ -53,6 +54,8 @@ class UserStoreRequest extends BaseFormRequest
             'phone.digits' => 'SDT tối đa 10 số',
             'address_vallet.string' => 'Địa chỉ không hợp lệ',
             'address_vallet.string' => 'Địa chỉ tối đa 255 ký tự',
+            'u_id.required' => 'id user không để trống',
+            'u_id.numeric' => 'id user đúng định dạng',
         ];
     }
 

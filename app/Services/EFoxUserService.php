@@ -18,6 +18,7 @@ class EFoxUserService extends BaseService
             "address" => $request->address,
             "phone" => $request->phone,
             "address_vallet" => $request->address_vallet,
+            "u_id" => $request->u_id,
         ];
         $user = User::create($input);
         $user->roles()->attach([1]);

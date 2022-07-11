@@ -17,6 +17,7 @@ class AddToFieldsUsersTable extends Migration
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('address_vallet')->nullable();
+            $table->bigInteger('u_id')->nullable();
         });
     }
 

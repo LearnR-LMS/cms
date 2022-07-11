@@ -32,7 +32,7 @@ Route::group(['middleware' => 'efox'], function () {
         Route::group(['prefix' => 'user'], function () {
             Route::post('store', [EFoxApiController::class, 'store']);
             Route::post('update/{id}', [EFoxApiController::class, 'update']);
-            Route::delete('{id}', [EFoxApiController::class, 'delete']);
+            Route::post('{id}', [EFoxApiController::class, 'delete']);
         });
     });
 });

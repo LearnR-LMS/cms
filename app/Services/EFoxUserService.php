@@ -41,8 +41,8 @@ class EFoxUserService extends BaseService
     {
         $user = User::find($id);
         if ($user) {
-            $user->delete();
-            $user->roles()->detach();
+            $user->is_active = 0;
+            $user->save();
         } else {
             abort(404, "Không tìm thấy user");
         }

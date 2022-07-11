@@ -35,7 +35,6 @@ class UserService extends BaseService
     }
     public function store($request)
     {
-        return Auth::user();
         $input = [
             "first_name" => $request->first_name,
             "last_name" => $request->last_name,

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Efox;
+namespace App\Http\Requests\EFox;
 
 use App\Http\Requests\BaseFormRequest;
 

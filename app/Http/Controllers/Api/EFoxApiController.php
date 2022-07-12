@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Api\BaseApiController;
-use App\Http\Requests\Efox\CourseStoreRequest;
-use App\Http\Requests\Efox\CourseUpdateRequest;
+use App\Http\Requests\EFox\CourseStoreRequest;
+use App\Http\Requests\EFox\CourseUpdateRequest;
 use App\Http\Requests\EFox\UserStoreRequest;
 use App\Http\Requests\EFox\UserUpdateRequest;
 use App\Services\EFoxUserService;

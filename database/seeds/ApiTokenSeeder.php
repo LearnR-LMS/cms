@@ -2,7 +2,6 @@
 
 use App\Models\ApiToken;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class ApiTokenSeeder extends Seeder
 {
@@ -16,11 +15,7 @@ class ApiTokenSeeder extends Seeder
         $tokens = [
             [
                 'client' => 'eFox',
-                'token' => Hash::make(Str::random(8), [
-                    'memory' => 1024,
-                    'time' => 2,     
-                    'threads' => 2,       
-                ])
+                'token' => '$2y$10$LPGvaMwX70htWg/O/gT.LuLC7h6cZZOGV2csGjBZzm8xT1rEry2UK'
             ]
         ];
 

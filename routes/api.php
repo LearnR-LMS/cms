@@ -32,7 +32,12 @@ Route::group(['middleware' => 'efox'], function () {
         Route::group(['prefix' => 'user'], function () {
             Route::post('store', [EFoxApiController::class, 'store']);
             Route::post('update/{id}', [EFoxApiController::class, 'update']);
-            Route::post('{id}', [EFoxApiController::class, 'delete']);
+            Route::delete('{id}', [EFoxApiController::class, 'delete']);
+        });
+        Route::group(['prefix' => 'course'], function () {
+            Route::post('store', [EFoxApiController::class, 'storeCourse']);
+            Route::post('update/{id}', [EFoxApiController::class, 'updateCourse']);
+            Route::delete('{id}', [EFoxApiController::class, 'deleteCourse']);
         });
     });
 });

@@ -1,5 +1,5 @@
 <?php
 
-define('PAGING_DISPLAY', 10);
-
-return [];
+return [
+    'paging_display' => 10
+];

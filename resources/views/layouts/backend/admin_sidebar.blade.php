@@ -17,7 +17,7 @@
         </li>
         <li class="site-menu-item {{ request()->is('admin/course*') ? 'active' : '' }}">
             <a href="{{ route('admin.courses') }}">
-                <i class="site-menu-icon wb-user" aria-hidden="true"></i>
+                <i class="site-menu-icon fa fa-address-book" aria-hidden="true"></i>
                 <span class="site-menu-title">Courses Management</span>
             </a>
         </li>

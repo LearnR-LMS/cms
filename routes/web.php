@@ -142,6 +142,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('admin/save-user', 'Admin\UserController@saveUser')->name('admin.saveUser');
         Route::get('admin/users/getData', 'Admin\UserController@getData')->name('admin.users.getData');
 
+        Route::get('admin/courses', 'Admin\CoursesController@index')->name('admin.courses');
+
         Route::get('admin/categories', 'Admin\CategoryController@index')->name('admin.categories');
         Route::get('admin/category-form', 'Admin\CategoryController@getForm')->name('admin.categoryForm');
         Route::get('admin/category-form/{Category_id}', 'Admin\CategoryController@getForm');

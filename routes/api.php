@@ -35,6 +35,7 @@ Route::group(['middleware' => 'efox'], function () {
             Route::delete('{id}', [EFoxApiController::class, 'delete']);
         });
         Route::group(['prefix' => 'course'], function () {
+            Route::get('list', [EFoxApiController::class, 'getListCourse']);
             Route::post('store', [EFoxApiController::class, 'storeCourse']);
             Route::post('update/{id}', [EFoxApiController::class, 'updateCourse']);
             Route::delete('{id}', [EFoxApiController::class, 'deleteCourse']);

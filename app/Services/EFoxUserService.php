@@ -56,6 +56,13 @@ class EFoxUserService extends BaseService
     }
 
     // Courses
+    public function getListCourse($request){
+        // $page = (int)$request->get("page");
+        // if()
+        $data = EFCourse::paginate(PAGING_DISPLAY);
+        return $data;
+    }
+    
     public function storeCourse($request)
     {
         if (EFCourse::find($request->u_id)) abort(422, "ID khóa học đã tồn tại.");

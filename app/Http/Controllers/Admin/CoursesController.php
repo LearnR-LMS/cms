@@ -12,7 +12,7 @@ class CoursesController extends Controller
     public function index(Request $request){
        
         $page = (int)$request->get("page");
-        $courses = EFCourse::where("is_deleted", !EFCourse::IS_DELETED)->paginate(PAGING_DISPLAY);
+        $courses = EFCourse::where("is_deleted", !EFCourse::IS_DELETED)->paginate(config('constants.paging_display'));
         if($page > $courses->lastPage()){
             return redirect('/admin/courses?page=' . $courses->lastPage());
         }

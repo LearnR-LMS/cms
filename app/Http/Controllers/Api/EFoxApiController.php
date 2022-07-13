@@ -19,7 +19,8 @@ class EFoxApiController extends BaseApiController
     {
         $this->service = $service;
     }
-
+    
+    //User
     public function store(UserStoreRequest $request)
     {
         try {
@@ -50,6 +51,20 @@ class EFoxApiController extends BaseApiController
             return $this->sendSuccessData(
                 $this->service->delete($id),
                 "Đã xóa User thành công."
+            );
+        } catch (Exception $exception) {
+            $this->getLogger()->error($exception);
+            return $this->setMessage($exception->getMessage())->sendErrorData();
+        }
+    }
+
+    //Courses
+    public function getListCourse(Request $request)
+    {
+        try {
+            return $this->sendSuccessData(
+                $this->service->getListCourse($request),
+                "Hiển thị danh sách thành công."
             );
         } catch (Exception $exception) {
             $this->getLogger()->error($exception);

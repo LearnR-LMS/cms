@@ -9,10 +9,16 @@
                 <span class="site-menu-title">Dashboard</span>
             </a>
         </li>
-         <li class="site-menu-item {{ request()->is('admin/user*') ? 'active' : '' }}">
+        <li class="site-menu-item {{ request()->is('admin/user*') ? 'active' : '' }}">
             <a href="{{ route('admin.users') }}">
                 <i class="site-menu-icon wb-user" aria-hidden="true"></i>
                 <span class="site-menu-title">Users Management</span>
+            </a>
+        </li>
+        <li class="site-menu-item {{ request()->is('admin/course*') ? 'active' : '' }}">
+            <a href="{{ route('admin.courses') }}">
+                <i class="site-menu-icon wb-user" aria-hidden="true"></i>
+                <span class="site-menu-title">Courses Management</span>
             </a>
         </li>
         <li class="site-menu-item {{ request()->is('admin/categor*') ? 'active' : '' }}">

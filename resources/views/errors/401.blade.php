@@ -28,7 +28,7 @@
                <div class="col-12 not-found-col">
                     <span><b>4<span class="blue">0</span>1</b></span>
                     <h3>Sorry! You are not allowed to access this page</h3>
-                    <a href="{{ route('home') }}" class="btn btn-ulearn-cview mt-3">Go to ulearn homepage</a>
+                    <a href="{{ route('home') }}" class="btn btn-ulearn-cview mt-3">Go to LearnR homepage</a>
                </div>
             </div>
         </article>

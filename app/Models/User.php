@@ -38,6 +38,12 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsToMany(Role::class);
     }
 
+    public function course()
+    {
+        return $this->belongsToMany(EFCourse::class, 'ef_scores', 'user_id', 'ef_course_id')
+            ->withPivot(['score', 'earn_status']);
+    }
+
     /**
      * @param string|array $roles
      */

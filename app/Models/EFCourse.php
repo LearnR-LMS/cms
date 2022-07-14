@@ -11,4 +11,8 @@ class EFCourse extends Model
     protected $fillable = [
         'id', 'name', 'total_time_learning', 'total_question', 'is_deleted'
     ];
+
+    public function user() {
+        return $this->belongsToMany(User::class, 'ef_scores', 'ef_course_id', 'user_id');
+    }
 }

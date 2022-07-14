@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\EFCourse;
+use App\Models\EFScore;
 use App\Models\User;
 
 class EFoxUserService extends BaseService
@@ -59,7 +60,7 @@ class EFoxUserService extends BaseService
     public function getListCourse($request){
         // $page = (int)$request->get("page");
         // if()
-        $data = EFCourse::paginate(PAGING_DISPLAY);
+        $data = EFCourse::paginate(config('constants.paging_display'));
         return $data;
     }
     
@@ -101,5 +102,28 @@ class EFoxUserService extends BaseService
         }
 
         return $id;
+    }
+    public function scoreCourse($request)
+    {
+        $user_id = $request->input('user_id');
+        if (!User::query()->find($user_id))
+            abort(404, "Không tìm thấy user.");
+
+        $course_id = $request->input('course_id');
+        if (!$ef_course = EFCourse::query()->find($course_id))
+            abort(404, "Không tìm thấy khóa học.");
+
+        $score = $request->input('score');
+        
+        $input = [
+            'ef_course_id' => $course_id,
+            'user_id' => $user_id,
+            'score' => $score
+        ];
+
+        EFScore::create($input);
+        // $ef_course->user()->attach($user_id, ['score'=> $score ]);
+
+        return true;
     }
 }

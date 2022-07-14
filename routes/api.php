@@ -39,6 +39,7 @@ Route::group(['middleware' => 'efox'], function () {
             Route::post('store', [EFoxApiController::class, 'storeCourse']);
             Route::post('update/{id}', [EFoxApiController::class, 'updateCourse']);
             Route::delete('{id}', [EFoxApiController::class, 'deleteCourse']);
+            Route::post('score', [EFoxApiController::class, 'scoreCourse']);
         });
     });
 });

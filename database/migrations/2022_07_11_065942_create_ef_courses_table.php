@@ -27,6 +27,9 @@ class CreateEfCoursesTable extends Migration
             $table->bigInteger('ef_course_id');
             $table->bigInteger('user_id');
             $table->integer('score');
+            $table->tinyInteger('earn_status')
+                ->default(1)
+                ->comment("1. Pending, 2. Rejected, 3. Approved");
             $table->timestamps();
         });
     }

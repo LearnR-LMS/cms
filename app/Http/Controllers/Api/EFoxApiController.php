@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Api\BaseApiController;
 use App\Http\Requests\EFox\CourseStoreRequest;
 use App\Http\Requests\EFox\CourseUpdateRequest;
+use App\Http\Requests\EFox\ScoreStoreRequest;
 use App\Http\Requests\EFox\UserStoreRequest;
 use App\Http\Requests\EFox\UserUpdateRequest;
 use App\Services\EFoxUserService;
@@ -98,6 +99,17 @@ class EFoxApiController extends BaseApiController
             return $this->sendSuccessData(
                 $this->service->deleteCourse($id),
                 "Xóa khóa học thành công."
+            );
+        } catch (Exception $exception) {
+            $this->getLogger()->error($exception);
+            return $this->setMessage($exception->getMessage())->sendErrorData();
+        }
+    }
+    public function scoreCourse(ScoreStoreRequest $request) {
+        try {
+            return $this->sendSuccessData(
+                $this->service->scoreCourse($request),
+                "Lưu điểm số của khóa học thành công."
             );
         } catch (Exception $exception) {
             $this->getLogger()->error($exception);

@@ -8,7 +8,7 @@
             <nav class="navbar clearfix secondary-nav pt-0 pb-0 login-page-seperator">
                 <ul class="list mt-0">
                      <li><a href="{{ route('login') }}" class="active">Login</a></li>
-                     <li><a href="{{ route('register') }}">Register</a></li>
+                     {{-- <li><a href="{{ route('register') }}">Register</a></li> --}}
                 </ul>
             </nav>
 
@@ -51,13 +51,13 @@
                                 <button type="submit" class="btn btn-lg btn-block login-page-button">Login</button>
                             </div>
 
-                            <div class="hr-container">
+                            {{-- <div class="hr-container">
                                <hr class="hr-inline" align="left">
                                <span class="hr-text"> or </span>
                                <hr class="hr-inline" align="right">
-                            </div>
+                            </div> --}}
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <a href="{{ url('login/facebook') }}" class="btn btn-lg btn-block social-btn facebook-btn">
                                     <div class="row">
                                         <div class="col-3">
@@ -85,7 +85,7 @@
                                         </div>
                                     </div>
                                 </a>
-                            </div>
+                            </div> --}}
 
                         </div>
                         </form>

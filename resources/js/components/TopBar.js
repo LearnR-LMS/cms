@@ -13,7 +13,7 @@ export default class TopBar extends Component {
                   </button>
                   <div className="navbar-brand navbar-brand-center site-gridmenu-toggle active" data-toggle="gridmenu" aria-expanded="true">
                     <img className="navbar-brand-logo" src={ site_url+"/backend/assets/images/b_logo.png" } title="ULEARN" />
-                    <span className="navbar-brand-text hidden-xs-down"> ULEARN</span>
+                    <span className="navbar-brand-text hidden-xs-down"> LEARN-R</span>
                   </div>
                 </div>
 

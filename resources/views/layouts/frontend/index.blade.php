@@ -28,12 +28,13 @@
                 <i class="fa fa-bars d-inline-block d-md-none mobile-nav"></i>
                 <a href="{{ route('home') }}" class="float-xl-right"><img src="{{ asset('frontend/img/logo.png') }}" width="100" height="23" /></a>
             </div>
+            <?php 
+                $categories = SiteHelpers::active_categories();
+            ?>
             <div class="col-md-3 col-lg-6 col-xl-6 d-none d-md-block">
-                <div class="dropdown float-left" >
+                {{-- <div class="dropdown float-left" >
                   <span id="dropdownMenuButton" data-toggle="dropdown">Categories &nbsp;<i class="fa fa-caret-down"></i></span>
-                    <?php 
-                        $categories = SiteHelpers::active_categories();
-                    ?>
+               
                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     @foreach ($categories as $category)
                         <a class="dropdown-item" href="{{ route('course.list','category_id[]='.$category->id) }}">
@@ -41,7 +42,7 @@
                             {{ $category->name}}
                         </a>
                     @endforeach
-                  </div>
+                  </div> --}}
                 </div>
             </div>
 

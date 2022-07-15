@@ -65,6 +65,7 @@ class Kernel extends HttpKernel
         'auth.jwt' => \Tymon\JWTAuth\Http\Middleware\Authenticate::class, // JWT middleware
         'auth.jwt' => \Tymon\JWTAuth\Http\Middleware\Authenticate::class, // JWT middleware
         'efox' => \App\Http\Middleware\eFox::class, // eFox middleware
+        'lr' => \App\Http\Middleware\LR::class, // LearnR middleware
     
     ];
 

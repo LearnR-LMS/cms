@@ -134,7 +134,7 @@
                 <img src="{{ asset('frontend/img/logo_footer.png') }}" class="img-fluid" width="210" height="48">
                 <br>
                 <span id="c-copyright">
-                    Copyright © 2019, LearnR. All rights reserved.
+                    Copyright © 2022, LearnR. All rights reserved.
                 </span>
             </div>
         </div>

@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use App\Models\ApiToken;
 use Closure;
 
-class eFox
+class LR
 {
     /**
      * Handle an incoming request.
@@ -27,7 +27,8 @@ class eFox
     {
 
         $client = $request->header('client');
-        if ($client != 'eFox') return false;
+        $client = $request->header('client');
+        if ($client != 'lr') return false;
 
         $token  = $request->header('token');
 

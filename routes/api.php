@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\EFoxApiController;
+use App\Http\Controllers\Api\LRApiController;
 use App\Http\Controllers\Api\UserApiController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
 Route::group(['prefix' => 'auth'], function () {
     Route::post('login', [UserApiController::class, 'login']);
     Route::get('refresh', [UserApiController::class, 'refresh']);
@@ -40,6 +42,13 @@ Route::group(['middleware' => 'efox'], function () {
             Route::post('update/{id}', [EFoxApiController::class, 'updateCourse']);
             Route::delete('{id}', [EFoxApiController::class, 'deleteCourse']);
             Route::post('score', [EFoxApiController::class, 'scoreCourse']);
+        });
+    });
+});
+Route::group(['middleware' => 'lr'], function () {
+    Route::group(['prefix' => 'transfer'], function () {
+        Route::group(['prefix' => 'pen'], function () {
+            Route::get('use/{address_wallet}/{pen_id}', [LRApiController::class, 'usePen']);
         });
     });
 });

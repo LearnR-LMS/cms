@@ -16,6 +16,10 @@ class ApiTokenSeeder extends Seeder
             [
                 'client' => 'eFox',
                 'token' => '$2y$10$LPGvaMwX70htWg/O/gT.LuLC7h6cZZOGV2csGjBZzm8xT1rEry2UK'
+            ],
+            [
+                'client' => 'lr',
+                'token' => '65870fafa7946927b6a5f3fcab1ed6439a91b8f9'
             ]
         ];
 

@@ -20,6 +20,9 @@ class RedirectIfAuthenticated
         if (Auth::guard($guard)->check()) {
             return redirect('/home');
         }
+        if(\Route::current()->getName() == "register"){
+            return abort(404);
+        }
 
         return $next($request);
     }

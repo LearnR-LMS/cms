@@ -80,7 +80,7 @@
                 <!-- blog sidebar start -->
                 <div class="col-xl-3 col-lg-3 col-md-4 d-none d-md-block">
                     <section class="course-feature">
-                        <h6 class="text-center mt-3">SUBSCRIBE TO ULEARN BLOG</h6>
+                        <h6 class="text-center mt-3">SUBSCRIBE TO LEARN-R BLOG</h6>
 
                         <div class="pl-3 pr-2">
                             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusant doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>ULEARN LMS</title>
+        <title>LEARN-R LMS</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="robots" content="all,follow">
@@ -16,7 +16,7 @@
 
         <link rel="stylesheet" href="{{ asset('backend/fonts/web-icons/web-icons.min599c.css?v4.0.2') }}">
         <link rel="stylesheet" href="{{ asset('backend/vendor/toastr/toastr.min599c.css?v4.0.2') }}">
-        
+        <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.ico ') }}">
     </head>
     <body>
     <div class="se-pre-con"></div>
@@ -115,7 +115,7 @@
                     <li class="mb-1"><b>Resources</b></li>
                     <li><a href="{{ route('page.about') }}">About Us</a></li>
                     <li><a href="{{ route('page.contact') }}">Contact Us</a></li>
-                    <li><a href="{{ route('register') }}">Register Page</a></li>
+                    {{-- <li><a href="{{ route('register') }}">Register Page</a></li> --}}
                     <li><a href="{{ route('login') }}">Login Page</a></li>
                 </ul>
             </div>
@@ -134,7 +134,7 @@
                 <img src="{{ asset('frontend/img/logo_footer.png') }}" class="img-fluid" width="210" height="48">
                 <br>
                 <span id="c-copyright">
-                    Copyright © 2019, Ulearn. All rights reserved.
+                    Copyright © 2022, LearnR. All rights reserved.
                 </span>
             </div>
         </div>

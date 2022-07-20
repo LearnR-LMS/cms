@@ -55,7 +55,8 @@ class EarnCoinJob implements ShouldQueue
     public function handle()
     {
         $user_id = $this->data['user_id'];
-        if (!$user = User::query()->find($user_id))
+        $user = User::query()->find($user_id);
+        if (!$user)
             abort(404, "Không tìm thấy user.");
 
         $course_id = $this->data['course_id'];
@@ -67,24 +68,28 @@ class EarnCoinJob implements ShouldQueue
         $input = [
             'ef_course_id' => $course_id,
             'user_id' => $user_id,
-            'score' => $score
+            'score' => $score,
+            'earn_status' => EFScore::PENDING_EARN
         ];
 
         // $ef_course->user()->attach($user_id, ['score'=> $score ]);
-        $ef_score = EFScore::query()->updateOrCreate(
+        $ef_score = EFScore::query()->where(
             [
                 'ef_course_id' => $course_id,
                 'user_id' => $user_id,
-            ],
-            $input
-        );
-
+            ]
+        )->first();
+        if(!$ef_score) {
+            $ef_score = EFScore::query()->create($input);
+        }
+        
         // Call dApp
         if ($user->address_vallet && $user->pen_id && $ef_score->earn_status == EFScore::PENDING_EARN) {
             // Call check using which pen
             $pens = new Client();
             $uri_get_pens = config('lr.api_url') . "/token/" . $user->address_vallet . "?page=1";
             $res_pens = $pens->request('GET', $uri_get_pens, [
+                'timeout' => 60,
                 'headers' => [
                     'Accept'     => 'application/json',
                     'Authorization'      => config('lr.token')
@@ -105,6 +110,7 @@ class EarnCoinJob implements ShouldQueue
             if ($stt_pens == 200 && $pen_used) {
                 $earning = new Client();
                 $res_earning = $earning->request('POST', config('lr.api_url') . '/earn/token/quiz', [
+                    'timeout' => 180,
                     'headers' => [
                         'Accept'     => 'application/json',
                         'Authorization'      => config('lr.token')

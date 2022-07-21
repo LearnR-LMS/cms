@@ -124,7 +124,11 @@ class EarnCoinJob implements ShouldQueue
                 ]);
                 $stt_earning = $res_earning->getStatusCode(); // 200
                 if ($stt_earning == 200) {
-                    $ef_score->update(['earn_status' => EFScore::APPROVED_EARN]);
+                    $body_earning = json_decode($res_earning->getBody());
+                    $ef_score->update([
+                        'earn_status' => EFScore::APPROVED_EARN,
+                        'transaction_hash' => $body_earning->data->transactionHash
+                    ]);
                 }
             }
         }

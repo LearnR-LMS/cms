@@ -12,6 +12,6 @@ class EFScore extends Model
     const APPROVED_EARN = 3;
 
     protected $fillable = [
-        'ef_course_id', 'user_id', 'score', 'earn_status'
+        'ef_course_id', 'user_id', 'score', 'earn_status', 'transaction_hash'
     ];
 }

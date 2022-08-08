@@ -87,7 +87,7 @@ class EarnCoinJob implements ShouldQueue
         if ($user->address_vallet && $user->pen_id && $ef_score->earn_status == EFScore::PENDING_EARN) {
             // Call check using which pen
             $pens = new Client();
-            $uri_get_pens = config('lr.api_url') . "/token/" . $user->address_vallet . "?page=1";
+            $uri_get_pens = config('lr.api_url') . "/token/" . $user->address_vallet;
             $res_pens = $pens->request('GET', $uri_get_pens, [
                 'timeout' => 60,
                 'headers' => [
@@ -97,7 +97,7 @@ class EarnCoinJob implements ShouldQueue
             ]);
             $stt_pens = $res_pens->getStatusCode(); // 200
             $body_pens = json_decode($res_pens->getBody());
-            $pen_list = $body_pens->data->docs;
+            $pen_list = $body_pens->data;
             $pen_used = false;
             foreach ($pen_list as $p) {
                 if ($p->index == $user->pen_id) {
